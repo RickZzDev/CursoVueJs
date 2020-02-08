@@ -1,0 +1,17 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="desafio">
+    <!-- 1) Exiba um alert quando o botão for clicado -->
+    <div>
+        {{titulo}}
+    </div>
+    <input type="text" name="" v-model="titulo">
+</div>
+<script>
+    new Vue({
+        el:'#desafio',
+        data:{
+            titulo:"usando VueJs"
+        }
+    })
+</script>

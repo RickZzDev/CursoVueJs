@@ -13,7 +13,9 @@
         <p v-once>{{titulo}}</p>
         <p>{{saudacoes()}}</p>
         <!-- O v-bind da ao elemento o valor de uma propriedade Vue -->
-        <a v-bind:href="link">Google </a>   
+        <a v-bind:href="link">Google </a> 
+        <hr>
+        <p v-html="linkHtml"></p>  
         </div>
 
         <script>
@@ -22,7 +24,8 @@
                 el:'#app',
                 data:{
                     titulo:'Hello VueJs',
-                    link:'http://www.google.com.br'
+                    link:'http://www.google.com.br',
+                    linkHtml: '<a href="https://google.com.br">Google</a>'
                 },
                 methods:{
                     saudacoes : function(){

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <div id="app">
+            <p>{{contador}}</p>
+            <button v-on:click="somar(5)">Somar1</button>
+            <p v-on:mousemove="atualizarXY">
+                Mouse: {{x}} e {{y}} 
+                <span v-on:mousemove.stop >Parar aqui</span>
+            </p>
+
+            <input type="text" v-on:keyup.enter="exibirAlerta">
+        </div>
+
+        <script>
+            
+            new Vue({
+                el:'#app',
+                data:{
+                    contador:0,
+                    x:0,
+                    y:0
+                },
+                methods:{
+                    somar(num){
+                        console.log(num)
+                        this.contador += 5
+                    },
+                    atualizarXY(event){
+                        this.x = event.clientX
+                        this.y = event.clientY
+                    },
+                    exibirAlerta(event){
+                        alert(event.key)
+                    }
+    
+                }
+
+            })
+            
+        </script>
+</body>
+</html>
