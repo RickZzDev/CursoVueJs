@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .caixas{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .c1{
+            background-color: red;
+        }
+
+        .c2{
+            background-color: green;
+        }
+
+        .c3{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <div id="app">
+            <div class="caixas">
+                <!-- Acrescentando calsse dependendo do valor v ou f -->
+                <div class="demo" @click="aplicarc1 = !aplicarc1" :class="estilo1"></div>
+                <div class="demo"></div>
+                <div class="demo" :class="classeCss"></div>
+                <input type="text" v-model="classeCss">
+            </div>
+        </div>
+
+        <script>
+            
+            new Vue({
+                el:'#app',
+                data:{
+                    aplicarc1: false,
+                    classeCss: 'c1'
+                },
+                computed:{
+                    estilo1(){
+                        return {
+                            c1: this.aplicarc1,
+                            c2: !this.aplicarc1
+                        }
+                    }
+                }
+
+            })
+            
+        </script>
+</body>
+</html>
