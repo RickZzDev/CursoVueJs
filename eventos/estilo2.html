@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .caixas{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .c1{
+            background-color: red;
+        }
+
+        .c2{
+            background-color: green;
+        }
+
+        .c3{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <div id="app">
+            <div class="caixas">
+                <!-- Acrescentando calsse dependendo do valor v ou f -->
+                <div class="demo" :style="{'background-color':cor}"></div>
+                <div class="demo" :style="meuEstilo"></div>
+                <div class="demo"></div>
+                <input type="text" v-model="cor">
+                <input type="text" v-model="largura">
+            </div>
+        </div>
+
+        <script>
+            
+            new Vue({
+                el:'#app',
+                data:{
+                    cor:'red',
+                    largura: 100
+                },
+                computed:{
+                    meuEstilo(){
+                        return{
+                            backgroundColor: this.cor,
+                            width: this.largura + 'px'
+                        }
+                    }
+                }
+
+            })
+            
+        </script>
+</body>
+</html>
