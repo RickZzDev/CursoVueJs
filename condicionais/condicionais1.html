@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <!-- o V-if é a renderização por condições
+        no caso estamos conferindo a variavel logado
+    -->
+    <p v-if="logado">usuario logado: {{nome}}</p>
+    <!-- Else-if normal
+        conferindo a variavel anonimo
+    -->
+    <p v-else-if="anonimo">Navegando anonimamente</p>
+    <!-- Else normal, conferindo a variavel -->
+    <p v-else>Nenhum usuario logado</p>
+    <!-- Com o click do botao mudamos o valor da variavel
+     -->
+    <button @click="logado = !logado">{{logado ? 'Sair' : 'Entrar'}}</button>
+    <input type="checkbox" name="" v-model="anonimo" id="">
+</div>
+
+<script>
+
+    new Vue({
+        el:'#app',
+        data:{
+            nome:'Carlos',
+            logado:false,
+            anonimo:true
+        }
+    })
+
+</script>
