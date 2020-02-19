@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Matador de Monstro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="panel scores">
+            <div class="score">
+                <h1>Jogador</h1>
+                <div class="life-bar">
+                    <div class="life" :style="barraPlayer"></div>
+                </div>
+                <div> {{playerLife}}</div>
+            </div>
+            <div class="score">
+                <h1>Monstro</h1>
+                <div class="life-bar" >
+                    <div class="life"  :style="barraMonster" > </div>
+                </div>
+                <div>{{monsterLife}}</div>
+            </div>
+        </div>
+        <div  class="panel result" v-if="endGame">
+            <div  class="win" v-if="monsterLife == 0" > Você ganhou!!! :)</div>
+            <div  class="lose" v-else>Você perdeu! :(</div>
+        </div>
+        <div class="panel buttons" >
+            <template v-if="iniciarJogo" >
+                <button 
+                    class="btn attack" @click="atacarSimples">Ataque</button>
+                <button 
+                    class="btn especial-attack" @click="atacarEspecial">Ataque Especial</button>
+                <button 
+                    class="btn heal" @click="curar">Curar</button>
+                <button 
+                    class="btn give-up" @click="desistir">Desistir</button>
+            </template>
+            <button
+                class="btn new-game" v-if="iniciarJogo == false" @click="iniciarJogo = !iniciarJogo" >Iniciar Jogo</button>
+        </div>
+        <div 
+            class="panel logs" v-if="movimento">
+            <ul>
+                <li class="log"  v-for="a in nMovimento" >
+                    <div >{{text}}</div>  
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

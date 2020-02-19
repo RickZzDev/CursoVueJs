@@ -1,0 +1,44 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <ul>
+        <!-- O i é a variavel que ira receber o indice -->
+        <li v-for="(cor,i) in cores"> {{cor}} - {{i}}</li>
+        <hr />
+        <li v-for="pessoa in pessoas"> {{pessoa}}</li>
+    </ul>
+    <hr>
+    <div v-for="(cor,i) in cores">
+        {{cor}} - {{i}}
+    </div>
+    <!-- O template n aparece no inspecionar -->
+    <!-- Percorre os objetos -->
+    <template v-for="pessoa in pessoas">
+        <!-- Percoro o objeto em sim -->
+        <template v-for="(valor, chave,i) in pessoa" :key="cor">
+            {{chave}} = {{valor}} - {{i}} <br>
+        </template>
+    </template>
+    <button @click="cores.push('Azul')">Colocar azul</button>
+    <!-- Listas com numeros -->
+    <div v-for="n in 10" :style="display">{{n}}
+
+    </div>
+</div>
+
+<script>
+
+    new Vue({
+        el:'#app',
+        data:{
+            display:'display: inline',
+            cores:['vermelho','amarelo','azul','verde'],
+            pessoas:[
+                {nome:'Leticia', idade:19, peso:50},
+                {nome:'Carlos', idade:19, peso:65}
+            ]
+        }
+    })
+
+</script>

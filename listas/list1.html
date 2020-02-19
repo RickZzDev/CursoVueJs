@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <ul>
+        <!-- O i é a variavel que ira receber o indice -->
+        <li v-for="(cor,i) in cores"> {{cor}} - {{i}}</li>
+        <hr />
+        <li v-for="(pessoa,i) in pessoas"> {{pessoa}}</li>
+    </ul>
+</div>
+
+<script>
+
+    new Vue({
+        el:'#app',
+        data:{
+            cores:['vermelho','amarelo','azul','verde'],
+            pessoas:[
+                {nome:'Leticia', idade:19, peso:50},
+                {nome:'Carlos', idade:19, peso:65}
+            ]
+        }
+    })
+
+</script>

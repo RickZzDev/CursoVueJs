@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div class="app">
+            <h1>{{titulo}}</h1>
+            <button @click="titulo += '#'">atualizar</button>
+            <button @click="$destroy()">Destruir</button>
+        </div>
+    </body>
+</html>
+
+<script>
+
+new Vue({
+    el:'.app',
+    data:{
+        titulo:'clico de vida'
+    },
+    // Metodos cilco de vida
+    beforeCreate(){
+        console.log('antes de montar a DOM')
+    },
+    created(){
+        console.log('depois de criar')
+    },
+    beforeMount(){
+        console.log('antes de montar')
+    },
+    mounted(){
+        console.log('depois de montar')
+    },
+    beforeUpdate(){
+        console.log('antesde atualizar')
+    },
+    updated(){
+        console.log(this.titulo)
+        console.log('depois de atualizar')
+    },
+    beforeDestroy(){
+        console.log('Antes de destruir')
+    },
+    destroyed(){
+        console.log('depois de destruir')
+    }, 
+    methods:{
+        
+    },
+    watch:{
+
+    },
+    computed:{
+
+    }
+})
+
+</script>
+
+
